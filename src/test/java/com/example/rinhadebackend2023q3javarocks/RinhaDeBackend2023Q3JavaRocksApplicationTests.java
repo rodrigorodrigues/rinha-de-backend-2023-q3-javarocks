@@ -97,7 +97,7 @@ class RinhaDeBackend2023Q3JavaRocksApplicationTests {
 
         Person person = objectMapper.readValue(response, Person.class);
 
-        mockMvc.perform(get("/pessoas/"+person.getId()))
+        mockMvc.perform(get("/pessoas/"+person.id()))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.stack", hasSize(2)));

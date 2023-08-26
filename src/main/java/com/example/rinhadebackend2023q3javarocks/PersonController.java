@@ -29,10 +29,10 @@ public class PersonController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Person> create(@Validated @RequestBody Person person) {
-        person.setId(UUID.randomUUID().toString());
-        log.debug("Creating person: {}={}", Thread.currentThread(), person);
-        person = personService.create(person);
-        return ResponseEntity.created(URI.create("/pessoas/"+person.getId())).body(person);
+        Person personDto = new Person(UUID.randomUUID().toString(), person.apelido(), person.nome(), person.nascimento(), person.stack());
+        log.debug("Creating person: {}={}", Thread.currentThread(), personDto);
+        personDto = personService.create(personDto);
+        return ResponseEntity.created(URI.create("/pessoas/"+personDto.id())).body(personDto);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
