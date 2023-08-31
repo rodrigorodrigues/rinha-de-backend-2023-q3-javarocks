@@ -23,7 +23,7 @@ services:
       - SERVER_PORT=8080
       - SPRING_DATA_MONGODB_DATABASE=docker
 #      - JAVA_OPTS=-XX:+PrintFlagsFinal -verbose:gc -XX:+UnlockExperimentalVMOptions -Xms256M -Xmx512M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError
-#      - LOGGING_LEVEL_COM_EXAMPLE=debug
+      - LOGGING_LEVEL_COM_EXAMPLE=debug
     expose:
       - "8080"
 #    ports:
@@ -31,8 +31,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
-          memory: '1GB'
+          cpus: '0.5'
+          memory: '0.5GB'
 
   api02:
     image: rinha-de-backend-2023-q3-javarocks:0.0.1-SNAPSHOT
@@ -44,14 +44,14 @@ services:
       - SERVER_PORT=8080
       - SPRING_DATA_MONGODB_DATABASE=docker
 #      - JAVA_OPTS=-XX:+PrintFlagsFinal -verbose:gc -XX:+UnlockExperimentalVMOptions -Xms256M -Xmx512M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError
-#      - LOGGING_LEVEL_COM_EXAMPLE=debug
+      - LOGGING_LEVEL_COM_EXAMPLE=debug
     expose:
       - "8080"
     deploy:
       resources:
         limits:
-          cpus: '1'
-          memory: '1GB'
+          cpus: '0.5'
+          memory: '0.5GB'
 
   nginx:
     image: nginx:latest

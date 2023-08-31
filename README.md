@@ -21,12 +21,11 @@ Follow https://github.com/zanfranceschi/rinha-de-backend-2023-q3/tree/main/teste
 
 `./gradlew bootBuildImage` takes a lot of time and need minimum 16GB memory.
 
-![img_2.png](img_2.png)
+![img_5.png](img_5.png)
 
-![img.png](img.png)
+![img_4.png](img_4.png)
 
-![img_1.png](img_1.png)
-
+![img_3.png](img_3.png)
 
 
 ## References

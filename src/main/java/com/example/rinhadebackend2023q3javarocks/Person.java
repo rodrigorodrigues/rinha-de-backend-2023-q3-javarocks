@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.UUID;
 
 @Document(collection = "pessoas")
 public record Person (

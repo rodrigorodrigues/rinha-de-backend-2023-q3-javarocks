@@ -11,7 +11,7 @@ services:
       resources:
         limits:
           cpus: '1'
-          memory: '0.5GB'
+          memory: '1GB'
 
   api01:
     image: fielcapao/rinha-de-backend-2023-q3-javarocks:latest
@@ -22,7 +22,6 @@ services:
       - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
       - SERVER_PORT=8080
       - SPRING_DATA_MONGODB_DATABASE=docker
-#      - JAVA_OPTS=-XX:+PrintFlagsFinal -verbose:gc -XX:+UnlockExperimentalVMOptions -Xms256M -Xmx512M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError
 #      - LOGGING_LEVEL_COM_EXAMPLE=debug
     expose:
       - "8080"
@@ -31,8 +30,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
-          memory: '1GB'
+          cpus: '0.5'
+          memory: '0.5GB'
 
   api02:
     image: fielcapao/rinha-de-backend-2023-q3-javarocks:latest
@@ -43,15 +42,14 @@ services:
       - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
       - SERVER_PORT=8080
       - SPRING_DATA_MONGODB_DATABASE=docker
-#      - JAVA_OPTS=-XX:+PrintFlagsFinal -verbose:gc -XX:+UnlockExperimentalVMOptions -Xms256M -Xmx512M -XX:+UseG1GC -XX:+AlwaysPreTouch -XX:+ExitOnOutOfMemoryError
 #      - LOGGING_LEVEL_COM_EXAMPLE=debug
     expose:
       - "8080"
     deploy:
       resources:
         limits:
-          cpus: '1'
-          memory: '1GB'
+          cpus: '0.5'
+          memory: '0.5GB'
 
   nginx:
     image: nginx:latest
@@ -68,41 +66,41 @@ services:
         limits:
           cpus: '0.75'
           memory: '0.4GB'
-#
-#  prometheus:
-#    image: prom/prometheus
-#    container_name: prometheus
-#    command:
-#      - '--config.file=/etc/prometheus/prometheus.yml'
-#    volumes:
-#      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-#    ports:
-#      - "9090:9090"
-#    depends_on:
-#      - nginx
-#      - api01
-#      - api02
-#
-#  grafana:
-#    image: grafana/grafana
-#    container_name: grafana
-#    ports:
-#      - "3000:3000"
-#    environment:
-#      - GF_AUTH_ANONYMOUS_ENABLED=true
-#      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-#      - GF_SERVER_HTTP_PORT=3000
-#    depends_on:
-#      - prometheus
-#
-#  setup_grafana_datasource:
-#    image: appropriate/curl
-#    container_name: setup_grafana_datasource
-#    depends_on:
-#      - grafana
-#    volumes:
-#      - ./create-datasource-and-dashboard.sh:/create.sh:ro
-#    command: /create.sh
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    depends_on:
+      - nginx
+      - api01
+      - api02
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_SERVER_HTTP_PORT=3000
+    depends_on:
+      - prometheus
+
+  setup_grafana_datasource:
+    image: appropriate/curl
+    container_name: setup_grafana_datasource
+    depends_on:
+      - grafana
+    volumes:
+      - ./create-datasource-and-dashboard.sh:/create.sh:ro
+    command: /create.sh
 
 networks:
   default:
