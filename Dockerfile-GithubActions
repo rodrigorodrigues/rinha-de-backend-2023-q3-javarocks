@@ -1,5 +1,9 @@
 FROM ubuntu
 
-COPY /home/runner/work/rinha-de-backend-2023-q3-javarocks/rinha-de-backend-2023-q3-javarocks/build/native/nativeCompile/rinha-de-backend-2023-q3-javarocks .
+COPY . /home/app
 
-ENTRYPOINT ["/rinha-de-backend-2023-q3-javarocks"]
+WORKDIR /home/app
+
+RUN ls -al -R /home/app/build/native
+
+ENTRYPOINT ["/home/app/build/native/build/native/nativeCompile/rinha-de-backend-2023-q3-javarocks"]
