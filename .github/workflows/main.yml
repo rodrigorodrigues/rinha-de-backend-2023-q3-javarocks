@@ -20,15 +20,22 @@ jobs:
           java-version: '20.0.1'
           distribution: 'graalvm' # See 'Options' for all available distributions
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Example step
+
+      - name: GraalVM Set
         run: |
           echo "GRAALVM_HOME: $GRAALVM_HOME"
           echo "JAVA_HOME: $JAVA_HOME"
           java --version
           native-image --version
 
-      - name: Example step using Gradle plugin # https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html
+      - name: Gradle build # https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html
         run: ./gradlew nativeCompile
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
       - name: Build and Push Image MultiArch(amd64/arm64)
         id: docker_build
