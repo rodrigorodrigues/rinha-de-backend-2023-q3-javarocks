@@ -1,5 +1,5 @@
 FROM ubuntu
 
-COPY build/native/nativeCompile/rinha-de-backend-2023-q3-javarocks .
+COPY /home/runner/work/rinha-de-backend-2023-q3-javarocks/rinha-de-backend-2023-q3-javarocks/build/native/nativeCompile/rinha-de-backend-2023-q3-javarocks .
 
 ENTRYPOINT ["/rinha-de-backend-2023-q3-javarocks"]
