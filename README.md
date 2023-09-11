@@ -17,15 +17,22 @@
 
 Follow https://github.com/zanfranceschi/rinha-de-backend-2023-q3/tree/main/teste/gatling
 
-### Build native image
+### Build docker container using Spring
 
 `./gradlew bootBuildImage` takes a lot of time and need minimum 16GB memory.
 
-![img_5.png](img_5.png)
+### Build docker container using nativeCompile
+
+```
+./gradlew nativeCompile
+docker build -t rinha-de-backend-2023-q3-javarocks-native .
+
+```
+
+![img_3.png](img_3.png)
 
 ![img_4.png](img_4.png)
 
-![img_3.png](img_3.png)
 
 
 ## References

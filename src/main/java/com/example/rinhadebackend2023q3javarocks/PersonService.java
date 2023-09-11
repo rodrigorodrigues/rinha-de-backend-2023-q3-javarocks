@@ -1,7 +1,5 @@
 package com.example.rinhadebackend2023q3javarocks;
 
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
