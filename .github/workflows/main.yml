@@ -17,7 +17,7 @@ jobs:
 
       - uses: graalvm/setup-graalvm@v1
         with:
-          java-version: '17.0.7'
+          java-version: '20.0.1'
           distribution: 'graalvm' # See 'Options' for all available distributions
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Example step
@@ -28,7 +28,7 @@ jobs:
           native-image --version
 
       - name: Example step using Gradle plugin # https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html
-        run: gradlew nativeCompile
+        run: ./gradlew nativeCompile
 
       - name: Build and Push Image MultiArch(amd64/arm64)
         id: docker_build
