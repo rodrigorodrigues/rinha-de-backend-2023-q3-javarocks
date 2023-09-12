@@ -29,11 +29,11 @@ docker build -t rinha-de-backend-2023-q3-javarocks-native .
 
 ```
 
-![img_3.png](img_3.png)
+![img.png](img.png)
 
-![img_4.png](img_4.png)
+![img_1.png](img_1.png)
 
-
+![img_2.png](img_2.png)
 
 ## References
 [Spring Boot Gradle Plugin](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image.examples)

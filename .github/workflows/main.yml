@@ -4,6 +4,7 @@ on:
     branches: [ main ]
 jobs:
   build:
+    if: contains(toJson(github), 'build github')
     name: Build image multiarch
     runs-on: ubuntu-latest
     steps:

@@ -34,10 +34,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.40'
+          cpus: '0.90'
           memory: '1.4GB'
         reservations:
-          cpus: '0.40'
+          cpus: '0.90'
           memory: '1.4GB'
     networks:
       net:
@@ -59,10 +59,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.50'
+          cpus: '0.25'
           memory: '0.7GB'
         reservations:
-          cpus: '0.50'
+          cpus: '0.25'
           memory: '0.7GB'
     networks:
       net:
@@ -84,10 +84,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.50'
+          cpus: '0.25'
           memory: '0.7GB'
         reservations:
-          cpus: '0.50'
+          cpus: '0.25'
           memory: '0.7GB'
     networks:
       net:
