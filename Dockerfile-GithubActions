@@ -1,9 +1,9 @@
 FROM ubuntu
 
-COPY . /home/app
+COPY build /home/app
 
 WORKDIR /home/app
 
-RUN ls -al -R /home/app/build/native
+RUN ls -al -R /home/app
 
 ENTRYPOINT ["/home/app/build/native/build/native/nativeCompile/rinha-de-backend-2023-q3-javarocks"]
