@@ -1,6 +1,6 @@
 FROM ubuntu
 
-COPY build /home/app
+COPY . /home/app
 
 WORKDIR /home/app
 
