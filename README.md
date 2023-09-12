@@ -11,7 +11,11 @@
 
 ### Docker Compose
 
-`docker-compose up -d` or `docker-compose -f docker-compose-local.yml up -d`
+MacM1 use `fielcapao/rinha-de-backend-2023-q3-javarocks-native:macm1-arm64`
+
+Linux use `fielcapao/rinha-de-backend-2023-q3-javarocks-native:linux-amd64`
+
+`docker-compose up -d`
 
 ### Gatling
 
@@ -23,10 +27,16 @@ Follow https://github.com/zanfranceschi/rinha-de-backend-2023-q3/tree/main/teste
 
 ### Build docker container using nativeCompile
 
-```
-./gradlew nativeCompile
-docker build -t rinha-de-backend-2023-q3-javarocks-native .
+`./gradlew nativeCompile`
 
+
+### Build using Dockerfile
+
+```
+docker login container-registry.oracle.com
+#Need to enter your oracle credentials
+
+docker build -t rinha-de-backend-2023-q3-javarocks-native .
 ```
 
 ![img.png](img.png)
