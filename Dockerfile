@@ -17,8 +17,6 @@ RUN \
     ## Run Gradle \
     ./gradlew nativeCompile -PskipTests
 
-RUN ls -al -R /home/app/build/native
-
 FROM ubuntu
 
 EXPOSE 8080

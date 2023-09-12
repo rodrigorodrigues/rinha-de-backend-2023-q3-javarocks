@@ -29,12 +29,6 @@ jobs:
           java --version
           native-image --version
 
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-
-      - name: Gradle build # https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html
-        run: ./gradlew nativeCompile
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
@@ -46,7 +40,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           platforms: linux/amd64,linux/arm64
-          file: Dockerfile-GithubActions
           push: true
           tags: |
             fielcapao/rinha-de-backend-2023-q3-javarocks-native:latest
